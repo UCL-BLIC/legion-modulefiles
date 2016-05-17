@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by J.H. on Legion on 2016-05-17
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Kallisto v0.42.5 to your environment."
+    puts stderr ""
+    puts stderr ""
+    puts stderr "See: "
+    puts stderr "https://pachterlab.github.io/kallisto/"
+    puts stderr ""
+}
+
+module-whatis "Adds Kallisto v0.42.5 to your environment."
+
+module load gcc-libs/4.9.2
+module load hdf/5-1.8.15/gnu-4.9.2
+
+set              root              /shared/ucl/depts/cancer/apps/kallisto/0.42.5
+
+prepend-path     PATH              $root/bin
+
