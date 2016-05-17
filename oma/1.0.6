@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by J.H. on Legion on 2016-05-16
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the OMA 1.0.6 package to your environment."
+    puts stderr ""
+    puts stderr ""
+    puts stderr "See: "
+    puts stderr "http://omabrowser.org/standalone/"
+    puts stderr ""
+}
+
+module-whatis "Adds OMA standalone 1.0.6 to your environment."
+
+set              root              /shared/ucl/depts/cancer/apps/oma-standalone/1.0.6/OMA
+
+prepend-path     PATH              $root/bin
+
