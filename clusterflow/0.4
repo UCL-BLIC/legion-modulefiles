@@ -18,6 +18,7 @@ module-whatis "Adds ClusterFlow v0.4 to your environment."
 
 module load perl/5.22.0
 
+prepend-path     PATH              $::env(MODULESHOME)/bin
 prepend-path     PATH              /shared/ucl/depts/cancer/apps/clusterflow/0.4
 
 set-alias        qs                "cf --qstat"
