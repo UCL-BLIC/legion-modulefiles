@@ -28,5 +28,6 @@ setenv           CYTOFPIPE_HOME    $cytofpipe_home
 
 prepend-path     PATH              $::env(MODULESHOME)/bin
 prepend-path     PATH              $cytofpipe_home
+prepend-path     R_LIBS            $cytofpipe_home/Rlibs
 
 set-alias        cytofpipe         "qsub $cytofpipe_home/cytofpipe.qsub"
