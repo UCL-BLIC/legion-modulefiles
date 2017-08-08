@@ -2,7 +2,7 @@
 ##
 ## modulefile
 ##
-## Built by J.H. on Legion on 2017-03-20
+## Built by J.H. and L.C. on Legion on 2017-06-27
 
 proc ModulesHelp { } {
 
@@ -13,21 +13,21 @@ proc ModulesHelp { } {
     puts stderr "collaboration with Jake Henry for the automatic analysis"
     puts stderr "of CyToF and Flow data."
     puts stderr ""
-    puts stderr "NOTE:  This version is still in development"
+    puts stderr "NOTE:  This is version 1.0"
     puts stderr ""
 }
 
-module-whatis "Adds cytofpipe (dev version) to your environment."
+module-whatis "Adds cytofpipe (1.0 version) to your environment."
 
 module unload compilers
 module unload mpi
 module load r/recommended
 
-set              cytofpipe_home    /shared/ucl/depts/cancer/apps/cytofpipe/dev
+set              cytofpipe_home    /shared/ucl/depts/cancer/apps/cytofpipe/1.0
 setenv           CYTOFPIPE_HOME    $cytofpipe_home
 
 prepend-path     PATH              $::env(MODULESHOME)/bin
 prepend-path     PATH              $cytofpipe_home
 prepend-path     R_LIBS            $cytofpipe_home/Rlibs
 
-set-alias        cytofpipe         "qsub $cytofpipe_home/cytofpipe.qsub"
+set-alias        cytofpipe         "qsub -v CYTOFPIPE_HOME=${cytofpipe_home} $cytofpipe_home/cytofpipe.qsub"
