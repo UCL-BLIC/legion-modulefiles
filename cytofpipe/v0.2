@@ -25,6 +25,7 @@ module load r/recommended
 
 set              cytofpipe_home    /shared/ucl/depts/cancer/apps/cytofpipe/v0.2
 setenv           CYTOFPIPE_HOME    $cytofpipe_home
+setenv           R_MAX_NUM_DLLS    256
 
 prepend-path     PATH              $::env(MODULESHOME)/bin
 prepend-path     PATH              $cytofpipe_home
