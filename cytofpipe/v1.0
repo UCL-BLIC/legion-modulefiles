@@ -13,7 +13,7 @@ proc ModulesHelp { } {
     puts stderr "collaboration with Jake Henry for the automatic analysis"
     puts stderr "of CyToF and Flow data."
     puts stderr ""
-    puts stderr "NOTE:  This is version v0.3"
+    puts stderr "NOTE:  This is version v1.0"
     puts stderr ""
 }
 
