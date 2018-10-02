@@ -1,0 +1,32 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## L.C. on Legion on 2018-28-09
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds phantompeakqualtools (spp) to your environment."
+    puts stderr ""
+    puts stderr ""
+    puts stderr "NOTE:  This is version spp_1.14"
+    puts stderr ""
+}
+
+module-whatis "Adds phantompeakqualtools (spp_1.14 version) to your environment."
+
+module unload mpi
+module unload compilers
+module load r/recommended
+
+
+set              phantompeakqualtools_home     /shared/ucl/depts/cancer/apps/phantompeakqualtools/
+
+setenv           PHANTOMPEAKQUALTOOLS_HOME     $phantompeakqualtools_home
+
+prepend-path     PATH              $::env(MODULESHOME)/bin
+prepend-path     PATH              $phantompeakqualtools_home
+
+
+set-alias        phantompeakqualtools         "Rscript $phantompeakqualtools_home/run_spp.R" 
+
