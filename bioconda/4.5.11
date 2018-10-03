@@ -6,16 +6,15 @@
 
 proc ModulesHelp { } {
 
-    puts stderr "This module adds deeptools to your environment."
+    puts stderr "This module adds all the packages installed via bioconda to your environment."
+    puts stderr "These include:"
+    puts stderr "	deepTools 3.1.2 (Oct 2018)"
+    puts stderr "	multiQC 1.6	(Oct 2018)"
     puts stderr ""
-    puts stderr ""
-    puts stderr "NOTE:  This is version 3.1.1"
-    puts stderr ""
+    puts stderr "Note: these were installed with conda 4.5.11"
 }
 
-module-whatis "Adds deeptools (3.1.1 version) to your environment."
-
-##module load python3/recommended
+module-whatis "Adds installed bioconda packages to your environment."
 
 
 set root 			/shared/ucl/depts/cancer/apps/miniconda/3
@@ -25,9 +24,4 @@ prepend-path PATH    		$root/bin
 prepend-path LD_LIBRARY_PATH    $root/lib
 prepend-path LIBRARY_PATH       $root/lib
 prepend-path PYTHONPATH         $root/lib/python3.6/site-packages
-
-
-###prepend-path PYTHONPATH /home/regmr01/.local/lib/python3.6/site-packages/
-
-##module load python3/recommended
 
