@@ -2,38 +2,40 @@
 ##
 ## modulefile
 ##
-## L.C. on Legion on 2018-28-09
+## L.C. on Legion on 2018-22-10
 
 proc ModulesHelp { } {
 
     puts stderr "This module adds nextflow to your environment."
     puts stderr ""
     puts stderr ""
-    puts stderr "NOTE:  This is version 0.31.10"
+    puts stderr "NOTE:  This is version 0.32.0"
     puts stderr ""
 }
 
-module-whatis "Adds nextflow (0.31.10 version) to your environment."
+module-whatis "Adds nextflow (0.32.0 version) to your environment."
 
 module unload java
 module load java/1.8.0_92
 
 
-set              nextflow_home     /shared/ucl/depts/cancer/apps/nextflow/0.31.10/
+set              nextflow_home     /shared/ucl/depts/cancer/apps/nextflow/0.32.0/
 set              nextflow_pipelines     /shared/ucl/depts/cancer/apps/nextflow_pipelines
+set              sarek_scripts     /shared/ucl/depts/cancer/apps/nextflow_pipelines/Sarek/scripts
 
 setenv           NEXTFLOW_HOME     $nextflow_home
 setenv           NEXTFLOW_PIPELINES     $nextflow_pipelines
+setenv           SINGULARITY_BINDPATH     $sarek_scripts
 
 prepend-path     PATH              $::env(MODULESHOME)/bin
 prepend-path     PATH              $nextflow_home
 prepend-path     PATH              $nextflow_pipelines
-
+prepend-path     PATH              $sarek_scripts
 
 set-alias        nextflow_chipseq         "nextflow run $nextflow_pipelines/chipseq -profile legion" 
 set-alias	 nextflow_exoseq	  "nextflow run $nextflow_pipelines/NGI-ExoSeq -profile legion"
 set-alias        nextflow_rnaseq          "nextflow run $nextflow_pipelines/rnaseq -profile legion"
 set-alias        nextflow_mergefastq      "nextflow run $nextflow_pipelines/merge_fastq -profile legion"
-set-alias        nextflow_deseq2          "nextflow run $nextflow_pipelines/deseq2 -profile legion"
-
+set-alias        nextflow_dge      "nextflow run $nextflow_pipelines/DGE -profile legion"
+set-alias        nextflow_wgsalign      "nextflow run $nextflow_pipelines/wgsalign -profile legion"
 
