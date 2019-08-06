@@ -30,5 +30,5 @@ prepend-path     PATH              ${ginkgo_home}/cli/
 
 if [ info exists ::env(NEXTFLOW_PIPELINES) ] {
     set          nextflow_pipelines    $::env(NEXTFLOW_PIPELINES)
-    set-alias    nextflow_ginkgo       "nextflow run ${nextflow_pipelines}/ginkgo -profile myriad"
+    set-alias    nextflow_ginkgo       "nextflow run ${nextflow_pipelines}/ginkgo -profile legion"
 }
