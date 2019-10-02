@@ -1,0 +1,26 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## L.C. on Legion on 2019-30-09
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds all the packages installed via bioconda to your environment."
+    puts stderr ""
+    puts stderr ""
+    puts stderr ""
+    puts stderr "Note: these were installed with conda 4.7.12"
+}
+
+module-whatis "Adds installed bioconda packages to your environment."
+
+
+set root 			/shared/ucl/depts/cancer/apps/miniconda3
+
+prepend-path PATH              	 $::env(MODULESHOME)/bin
+prepend-path PATH    		$root/bin
+prepend-path LD_LIBRARY_PATH    $root/lib
+prepend-path LIBRARY_PATH       $root/lib
+prepend-path PYTHONPATH         $root/lib/python3.6/site-packages
+
